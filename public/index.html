@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTN April Flash Sale — Ends Soon</title>
+    <style>
+        :root {
+            --mtn-yellow: #ffcc00;
+            --mtn-black: #000000;
+            --mtn-white: #ffffff;
+            --mtn-light-gray: #f4f4f4;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--mtn-light-gray);
+            color: var(--mtn-black);
+        }
+
+        header {
+            background-color: var(--mtn-yellow);
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero {
+            background-color: var(--mtn-black);
+            color: var(--mtn-yellow);
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .store-btn-container {
+            margin: 40px 0;
+        }
+
+        .store-btn {
+            background-color: var(--mtn-yellow);
+            color: var(--mtn-black);
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 20px 40px;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(255, 204, 0, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-block;
+        }
+
+        .store-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(255, 204, 0, 0.6);
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 40px 0 20px;
+            font-size: 2rem;
+        }
+
+        .deals-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .deal-card {
+            background-color: var(--mtn-white);
+            border-left: 8px solid var(--mtn-yellow);
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .deal-header {
+            padding: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--mtn-white);
+            transition: background-color 0.3s;
+        }
+
+        .deal-header:hover {
+            background-color: #fafafa;
+        }
+
+        .deal-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease;
+            background-color: var(--mtn-light-gray);
+            padding: 0 20px;
+        }
+
+        .deal-content.active {
+            max-height: 200px;
+            padding: 20px;
+        }
+
+        .price {
+            color: #d90000;
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+
+        .reviews-container {
+            background-color: var(--mtn-yellow);
+            padding: 50px 20px;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .review-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 20px auto 0;
+        }
+
+        .review-card {
+            background-color: var(--mtn-black);
+            color: var(--mtn-white);
+            padding: 20px;
+            border-radius: 8px;
+            flex: 1 1 250px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .review-stars {
+            color: var(--mtn-yellow);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: var(--mtn-black);
+            color: var(--mtn-white);
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>⚡ MTN FLASH SALE — APRIL ONLY</h1>
+    </header>
+
+    <div class="hero">
+        <h2>These Deals Won't Last — Don't Miss Out</h2>
+        <p>Explore the latest devices, fast fibre, and seamless mobile connections.</p>
+        
+        <div class="store-btn-container">
+            <a href="https://maps.app.goo.gl/qptzf7SgN5uNFHCs8" target="_blank" class="store-btn">
+                📍 FIND STORE: SmartServe Building, 32 Century Blvd, Century City
+            </a>
+        </div>
+    </div>
+
+    <h3 class="section-title">Tap to Reveal Our Top Offers</h3>
+    
+    <div class="deals-container">
+        <div class="deal-card">
+            <div class="deal-header" onclick="toggleDeal(this)">
+                <span>📱 Samsung Galaxy A37 5G</span>
+                <span>+</span>
+            </div>
+            <div class="deal-content">
+                <p>Get the New Samsung Galaxy A37 (5G Enabled) on the <strong>Core Plan</strong>.</p>
+                <p class="price">R389 PM x 36</p>
+                <p><em>Add a Samsung Galaxy Fit3 + Buds Core for only R49 PMx36!</em></p>
+            </div>
+        </div>
+
+        <div class="deal-card">
+            <div class="deal-header" onclick="toggleDeal(this)">
+                <span>🍏 Apple iPhone 15 (128GB)</span>
+                <span>+</span>
+            </div>
+            <div class="deal-content">
+                <p>Double the value! eSIM compatible, 5G Enabled on the <strong>Core Plan</strong>.</p>
+                <p class="price">R579 PM x 36</p>
+                <p><em>Save R720! Was R599 PM.</em></p>
+            </div>
+        </div>
+
+        <div class="deal-card">
+            <div class="deal-header" onclick="toggleDeal(this)">
+                <span>🏠 MTN AirFibre 80</span>
+                <span>+</span>
+            </div>
+            <div class="deal-content">
+                <p>Superfast speeds up to 80Mbps. No trenching or digging required.</p>
+                <p class="price">R499 Month-to-Month</p>
+                <p><em>Includes free-to-use router and outdoor antenna.</em></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="reviews-container">
+        <h2>Real Reviews from Real Customers</h2>
+        <p>Don't take our word for it — hear from people who've visited MTN Century City.</p>
+        <div class="review-grid">
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p>"Asad sorted out months of roaming issues in 15 minutes that the call centre couldn't fix. Professional, calm, and incredibly competent."</p>
+                <small>- Dorian Glass · Local Guide</small>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p>"My daughter and I both had unresolved issues from another branch. Jarryd handled both without wasting a second — professional and welcoming from the moment we walked in."</p>
+                <small>- Nosimphiwe Femele</small>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p>"After frustrating experiences at other branches, Asad went above and beyond to help with my SIM swap. Professional, kind, and exceptional service."</p>
+                <small>- Gems Bok · Local Guide</small>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p>"Salmaa helped me cancel my Home WiFi contract efficiently and followed up to make sure everything was fully resolved. Excellent service."</p>
+                <small>- Sibusiso Nyawuza</small>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p>"Jazz explained everything clearly, was super friendly, and really went the extra mile. A real asset to the MTN brand."</p>
+                <small>- Morne Terweer</small>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p>"This is the only MTN store worth visiting. Leroy is the best rep — friendly, efficient, and always goes the extra mile. I always walk out happy."</p>
+                <small>- Nicolaas Liebenberg · Local Guide</small>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 MTN Flash Sale. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleDeal(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('span:last-child');
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.textContent = '+';
+            } else {
+                document.querySelectorAll('.deal-content').forEach(el => el.classList.remove('active'));
+                document.querySelectorAll('.deal-header span:last-child').forEach(el => el.textContent = '+');
+                
+                content.classList.add('active');
+                icon.textContent = '−';
+            }
+        }
+    </script>
+</body>
+</html>
