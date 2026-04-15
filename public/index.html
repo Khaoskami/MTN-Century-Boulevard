@@ -113,8 +113,66 @@
         }
 
         .deal-content.active {
-            max-height: 200px;
+            max-height: 300px;
             padding: 20px;
+        }
+
+        .tag-new {
+            background-color: #009a00;
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        .tag-save {
+            background-color: #d90000;
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        .was-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1rem;
+            margin-right: 8px;
+        }
+
+        .view-more-container {
+            text-align: center;
+            margin: 30px 0 10px;
+        }
+
+        .view-more-btn {
+            background-color: var(--mtn-black);
+            color: var(--mtn-yellow);
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            display: inline-block;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .view-more-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .promo-banner {
+            background-color: #009a00;
+            color: white;
+            text-align: center;
+            padding: 12px 20px;
+            font-weight: bold;
+            font-size: 0.95rem;
         }
 
         .price {
@@ -179,30 +237,73 @@
         </div>
     </div>
 
+    <div class="promo-banner">
+        🎁 FREE 10GB Anytime Data when you sign up, upgrade, or add a new line. Redeemable on the MTN App. T&Cs apply.
+    </div>
+
     <h3 class="section-title">Tap to Reveal Our Top Offers</h3>
+    <p style="text-align:center; margin-top:-10px; color:#555; font-size:0.9rem;">Valid 07 April – 06 May 2026. T&Cs apply.</p>
     
     <div class="deals-container">
+
         <div class="deal-card">
             <div class="deal-header" onclick="toggleDeal(this)">
-                <span>📱 Samsung Galaxy A37 5G</span>
+                <span>📱 Samsung Galaxy A37 5G <span class="tag-new">NEW</span></span>
                 <span>+</span>
             </div>
             <div class="deal-content">
-                <p>Get the New Samsung Galaxy A37 (5G Enabled) on the <strong>Core Plan</strong>.</p>
-                <p class="price">R389 PM x 36</p>
-                <p><em>Add a Samsung Galaxy Fit3 + Buds Core for only R49 PMx36!</em></p>
+                <p>5G Enabled on the <strong>Core Plan</strong>. Triple AI camera, massive storage (8+8GB RAM | 256GB), superfast 45W charge.</p>
+                <p class="price">from R389 PM x 36</p>
+                <p><em>ADD a Samsung Galaxy Fit3 + Buds Core for only R49 PM x 36!</em></p>
             </div>
         </div>
 
         <div class="deal-card">
             <div class="deal-header" onclick="toggleDeal(this)">
-                <span>🍏 Apple iPhone 15 (128GB)</span>
+                <span>📱 Samsung Galaxy A57 5G <span class="tag-new">NEW</span></span>
                 <span>+</span>
             </div>
             <div class="deal-content">
-                <p>Double the value! eSIM compatible, 5G Enabled on the <strong>Core Plan</strong>.</p>
-                <p class="price">R579 PM x 36</p>
-                <p><em>Save R720! Was R599 PM.</em></p>
+                <p>5G Enabled on the <strong>Core Plan</strong>. Triple AI camera, 120Hz Super AMOLED+ display, slim 6.9mm design.</p>
+                <p class="price">from R479 PM x 36</p>
+                <p><em>ADD a Samsung Galaxy Fit3 + Buds Core for only R49 PM x 36!</em></p>
+            </div>
+        </div>
+
+        <div class="deal-card">
+            <div class="deal-header" onclick="toggleDeal(this)">
+                <span>🍏 iPhone 15 (128GB) <span class="tag-save">SAVE R720</span></span>
+                <span>+</span>
+            </div>
+            <div class="deal-content">
+                <p>Pay LESS and get DOUBLE the value! eSIM compatible, 5G Enabled on the <strong>Core Plan</strong>.</p>
+                <p>Anytime Data: <strong>WAS 1GB → NOW 2GB</strong> | Minutes: <strong>WAS 60 → NOW 120</strong></p>
+                <p><span class="was-price">WAS R599 PM</span> <span class="price">NOW R579 PM x 36</span></p>
+                <p><em>ADD an Apple Watch SE 3 GPS 40mm — WAS R279, NOW from R99 PM x 36! (Save R6,480)</em></p>
+            </div>
+        </div>
+
+        <div class="deal-card">
+            <div class="deal-header" onclick="toggleDeal(this)">
+                <span>📱 Samsung Galaxy S26 (256GB) <span class="tag-new">NEW</span></span>
+                <span>+</span>
+            </div>
+            <div class="deal-content">
+                <p>5G Enabled, eSIM compatible. Galaxy AI, superfast wireless charge, nightography video.</p>
+                <p class="price">from R849 PM x 36 (Prime Plan)</p>
+                <p><em>🏆 Sign up or upgrade to any S26 Series and stand a chance to WIN 1 of 20 Samsung Home Makeovers worth R60,000 each!</em></p>
+            </div>
+        </div>
+
+        <div class="deal-card">
+            <div class="deal-header" onclick="toggleDeal(this)">
+                <span>📱 Samsung Galaxy S26 Ultra (256GB) <span class="tag-new">NEW</span></span>
+                <span>+</span>
+            </div>
+            <div class="deal-content">
+                <p>5G Enabled, eSIM compatible. AI privacy display, fast 60W charging, AI camera 200MP, S Pen built-in.</p>
+                <p class="price">from R1,249 PM x 36 (Deluxe Plan)</p>
+                <p><em>🏆 WIN 1 of 20 Samsung Home Makeovers worth R60,000!</em></p>
             </div>
         </div>
 
@@ -212,11 +313,52 @@
                 <span>+</span>
             </div>
             <div class="deal-content">
-                <p>Superfast speeds up to 80Mbps. No trenching or digging required.</p>
-                <p class="price">R499 Month-to-Month</p>
-                <p><em>Includes free-to-use router and outdoor antenna.</em></p>
+                <p>Superfast speeds up to 80Mbps. No trenching or digging required. Uncapped data.</p>
+                <p class="price">from R499 Month-to-Month</p>
+                <p><em>Includes free-to-use router, outdoor antenna, and free installation (promo period until 26/05/2026).</em></p>
             </div>
         </div>
+
+        <div class="deal-card">
+            <div class="deal-header" onclick="toggleDeal(this)">
+                <span>🏠 MTN AirFibre 150</span>
+                <span>+</span>
+            </div>
+            <div class="deal-content">
+                <p>150Mbps download, 50Mbps upload. Uncapped data, month-to-month flexibility.</p>
+                <p class="price">from R699 Month-to-Month</p>
+                <p><em>Includes free-to-use router, outdoor antenna, and free installation.</em></p>
+            </div>
+        </div>
+
+        <div class="deal-card">
+            <div class="deal-header" onclick="toggleDeal(this)">
+                <span>🏠 MTN AirFibre 300</span>
+                <span>+</span>
+            </div>
+            <div class="deal-content">
+                <p>300Mbps download, 100Mbps upload. Uncapped data, month-to-month flexibility.</p>
+                <p class="price">from R899 Month-to-Month</p>
+                <p><em>Includes free-to-use router, outdoor antenna, and free installation.</em></p>
+            </div>
+        </div>
+
+        <div class="deal-card">
+            <div class="deal-header" onclick="toggleDeal(this)">
+                <span>👥 Duo Discounts — Sweet savings come in twos</span>
+                <span>+</span>
+            </div>
+            <div class="deal-content">
+                <p>Get 2 devices on one deal! Huawei nova Y63 x2 from <strong>R399 PM x 36</strong> (MegaFlex 160). Samsung Galaxy A26 5G x2 <span class="was-price">WAS R499</span> <strong>NOW from R449 PM x 36</strong> (Save R1,800). Huawei nova 14i x2 from <strong>R579 PM x 36</strong> with R7,790 in free accessories — <strong>BEST DEAL</strong>.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="view-more-container">
+        <a href="https://mtn-century-boulevard.vercel.app/48002_April_Con_Trader_v7_final_lo_res.pdf" target="_blank" class="view-more-btn">
+            📄 VIEW MORE DEALS — Full April Catalogue
+        </a>
     </div>
 
     <div class="reviews-container">
