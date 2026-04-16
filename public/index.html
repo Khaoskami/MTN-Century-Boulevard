@@ -10,6 +10,7 @@
             --mtn-black: #000000;
             --mtn-white: #ffffff;
             --mtn-light-gray: #f4f4f4;
+            --whatsapp-green: #25D366;
         }
 
         body {
@@ -45,14 +46,18 @@
             margin-bottom: 20px;
         }
 
-        .store-btn-container {
+        .btn-container {
             margin: 40px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
         }
 
         .store-btn {
             background-color: var(--mtn-yellow);
             color: var(--mtn-black);
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: bold;
             text-decoration: none;
             padding: 20px 40px;
@@ -65,6 +70,24 @@
         .store-btn:hover {
             transform: scale(1.05);
             box-shadow: 0 6px 15px rgba(255, 204, 0, 0.6);
+        }
+
+        .whatsapp-btn {
+            background-color: var(--whatsapp-green);
+            color: var(--mtn-white);
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 20px 40px;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-block;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.6);
         }
 
         .section-title {
@@ -230,9 +253,12 @@
         <h2>These Deals Won't Last — Don't Miss Out</h2>
         <p>Explore the latest devices, fast fibre, and seamless mobile connections.</p>
         
-        <div class="store-btn-container">
+        <div class="btn-container">
             <a href="https://maps.app.goo.gl/qptzf7SgN5uNFHCs8" target="_blank" class="store-btn">
                 📍 FIND STORE: SmartServe Building, 32 Century Blvd, Century City
+            </a>
+            <a href="https://wa.me/27832001798?text=Hi,%20I'm%20interested%20in%20an%20upgrade%20or%20new%20contract." target="_blank" class="whatsapp-btn">
+                💬 Chat on WhatsApp for Upgrades & New Contracts
             </a>
         </div>
     </div>
@@ -399,7 +425,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 MTN Flash Sale. All rights reserved.</p>
+        <p>© 2026 MTN Flash Sale. All rights reserved.</p>
     </footer>
 
     <script>
