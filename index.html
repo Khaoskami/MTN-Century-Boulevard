@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTN May Deals — Mother's Day Specials | Century City</title>
+    <meta name="description" content="MTN May 2026 deals — HONOR 600 Lite, iPhone 17, Galaxy S26, AirFibre & more. Valid 07 May – 07 June 2026. Visit MTN Century City or chat on WhatsApp.">
+    <style>
+        :root {
+            --mtn-yellow: #ffcc00;
+            --mtn-black: #000000;
+            --mtn-white: #ffffff;
+            --mtn-light-gray: #f4f4f4;
+            --whatsapp-green: #25D366;
+            --whatsapp-green-dark: #128C7E;
+            --accent-red: #d90000;
+            --accent-green: #009a00;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--mtn-light-gray);
+            color: var(--mtn-black);
+            line-height: 1.5;
+        }
+
+        header {
+            background-color: var(--mtn-yellow);
+            padding: 24px 16px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: clamp(1.4rem, 4.5vw, 2.5rem);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        header .sub {
+            margin: 8px 0 0;
+            font-size: clamp(0.85rem, 2.5vw, 1rem);
+            font-weight: 600;
+        }
+
+        .hero {
+            background-color: var(--mtn-black);
+            color: var(--mtn-yellow);
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .hero h2 {
+            font-size: clamp(1.3rem, 4vw, 2rem);
+            margin: 0 0 12px;
+        }
+
+        .hero p {
+            color: #fff;
+            margin: 0 0 20px;
+            font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+        }
+
+        .btn-container {
+            margin: 30px 0 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .store-btn, .whatsapp-btn {
+            font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+            font-weight: bold;
+            text-decoration: none;
+            padding: 16px 28px;
+            border-radius: 50px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-block;
+            max-width: 92%;
+        }
+
+        .store-btn {
+            background-color: var(--mtn-yellow);
+            color: var(--mtn-black);
+            box-shadow: 0 4px 10px rgba(255, 204, 0, 0.4);
+        }
+
+        .whatsapp-btn {
+            background-color: var(--whatsapp-green);
+            color: var(--mtn-white);
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
+        }
+
+        .store-btn:hover, .whatsapp-btn:hover {
+            transform: scale(1.03);
+        }
+
+        .promo-banner {
+            background-color: var(--accent-green);
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            font-weight: bold;
+            font-size: clamp(0.85rem, 2.3vw, 0.95rem);
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 40px 0 6px;
+            font-size: clamp(1.4rem, 4vw, 2rem);
+        }
+
+        .section-sub {
+            text-align: center;
+            margin: 0 0 24px;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .deals-container {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .deal-card {
+            background-color: var(--mtn-white);
+            border-left: 8px solid var(--mtn-yellow);
+            margin-bottom: 14px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .deal-header {
+            padding: 18px 20px;
+            font-size: 1.05rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            background-color: var(--mtn-white);
+            transition: background-color 0.3s;
+            user-select: none;
+        }
+
+        .deal-header:hover {
+            background-color: #fafafa;
+        }
+
+        .deal-header .toggle-icon {
+            font-size: 1.4rem;
+            font-weight: normal;
+            color: var(--accent-red);
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .deal-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.3s ease;
+            background-color: var(--mtn-light-gray);
+            padding: 0 20px;
+        }
+
+        .deal-content.active {
+            max-height: 600px;
+            padding: 18px 20px 20px;
+        }
+
+        .deal-content p {
+            margin: 0 0 10px;
+        }
+
+        .tag-new, .tag-save, .tag-best {
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 8px;
+            vertical-align: middle;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .tag-new { background-color: var(--accent-green); }
+        .tag-save { background-color: var(--accent-red); }
+        .tag-best { background-color: #1565c0; }
+
+        .was-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1rem;
+            margin-right: 8px;
+        }
+
+        .price {
+            color: var(--accent-red);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .deal-whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--whatsapp-green);
+            color: var(--mtn-white);
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+            margin-top: 10px;
+            box-shadow: 0 2px 6px rgba(37, 211, 102, 0.35);
+            transition: transform 0.2s, background-color 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .deal-whatsapp-btn:hover {
+            background-color: var(--whatsapp-green-dark);
+            transform: scale(1.03);
+        }
+
+        .view-more-container {
+            text-align: center;
+            margin: 36px 0 10px;
+        }
+
+        .view-more-btn {
+            background-color: var(--mtn-black);
+            color: var(--mtn-yellow);
+            font-size: 1.05rem;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 14px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+
+        .view-more-btn:hover { transform: scale(1.04); }
+
+        /* QR Section */
+        .qr-section {
+            background-color: var(--mtn-white);
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+            border-top: 4px solid var(--mtn-yellow);
+        }
+
+        .qr-section h2 {
+            margin: 0 0 8px;
+            font-size: clamp(1.3rem, 3.5vw, 1.7rem);
+        }
+
+        .qr-section p {
+            margin: 0 0 20px;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .qr-wrapper {
+            display: inline-block;
+            padding: 16px;
+            background: white;
+            border: 3px solid var(--mtn-black);
+            border-radius: 12px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+        }
+
+        #qrcode img, #qrcode canvas {
+            display: block;
+        }
+
+        .qr-url {
+            margin-top: 14px;
+            font-size: 0.85rem;
+            color: #444;
+            word-break: break-all;
+        }
+
+        /* Reviews */
+        .reviews-container {
+            background-color: var(--mtn-yellow);
+            padding: 50px 20px;
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .reviews-container h2 {
+            margin: 0 0 8px;
+            font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+        }
+
+        .review-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 18px;
+            max-width: 1000px;
+            margin: 24px auto 0;
+        }
+
+        .review-card {
+            background-color: var(--mtn-black);
+            color: var(--mtn-white);
+            padding: 20px;
+            border-radius: 8px;
+            flex: 1 1 260px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            text-align: left;
+        }
+
+        .review-stars {
+            color: var(--mtn-yellow);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .review-card p { margin: 0 0 10px; font-size: 0.95rem; }
+        .review-card small { color: #ccc; }
+
+        footer {
+            background-color: var(--mtn-black);
+            color: var(--mtn-white);
+            text-align: center;
+            padding: 22px 16px;
+            font-size: 0.85rem;
+        }
+
+        footer p { margin: 4px 0; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🌼 MTN MAY DEALS — MOTHER'S DAY SPECIALS</h1>
+        <p class="sub">Valid 07 May – 07 June 2026 · Century City</p>
+    </header>
+
+    <div class="hero">
+        <h2>Show Mom Your Love This Month</h2>
+        <p>New devices. Faster fibre. Real savings — and free gifts on selected deals.</p>
+
+        <div class="btn-container">
+            <a href="https://maps.app.goo.gl/qptzf7SgN5uNFHCs8" target="_blank" rel="noopener" class="store-btn">
+                📍 FIND STORE: SmartServe Building, 32 Century Blvd
+            </a>
+            <a href="https://wa.me/27832001798?text=Good%20day%2C%20I%20am%20contacting%20you%20about%20an%20upgrade%20or%20new%20contract." target="_blank" rel="noopener" class="whatsapp-btn">
+                💬 General Enquiry on WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <div class="promo-banner">
+        🎁 FREE 10GB Anytime Data when you sign up, upgrade, or add a new line on qualifying 24/36-month plans. Redeemable on the MTN App. T&Cs apply.
+    </div>
+
+    <h3 class="section-title">Tap a Deal to Reveal Details</h3>
+    <p class="section-sub">Then hit the WhatsApp button to enquire about that specific deal.</p>
+
+    <div class="deals-container" id="dealsContainer">
+        <!-- Deals injected by JS for clean per-deal WhatsApp wiring -->
+    </div>
+
+    <div class="view-more-container">
+        <a href="48297_May_Consumer_Yello_Trader.pdf" target="_blank" rel="noopener" class="view-more-btn">
+            📄 VIEW FULL MAY CATALOGUE (PDF)
+        </a>
+    </div>
+
+    <!-- QR CODE SECTION -->
+    <div class="qr-section">
+        <h2>📱 Scan to Open This Page</h2>
+        <p>Share these deals — scan from a printed flyer or in-store screen to open on your phone.</p>
+        <div class="qr-wrapper">
+            <div id="qrcode"></div>
+        </div>
+        <div class="qr-url" id="qrUrl"></div>
+    </div>
+
+    <div class="reviews-container">
+        <h2>Real Reviews from Real Customers</h2>
+        <p>Don't take our word for it — hear from people who've visited MTN Century City.</p>
+        <div class="review-grid">
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p>"Asad sorted out months of roaming issues in 15 minutes that the call centre couldn't fix. Professional, calm, and incredibly competent."</p>
+                <small>– Dorian Glass · Local Guide</small>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p>"My daughter and I both had unresolved issues from another branch. Jarryd handled both without wasting a second — professional and welcoming from the moment we walked in."</p>
+                <small>– Nosimphiwe Femele</small>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p>"After frustrating experiences at other branches, Asad went above and beyond to help with my SIM swap. Professional, kind, and exceptional service."</p>
+                <small>– Gems Bok · Local Guide</small>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p>"Salmaa helped me cancel my Home WiFi contract efficiently and followed up to make sure everything was fully resolved. Excellent service."</p>
+                <small>– Sibusiso Nyawuza</small>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p>"Jazz explained everything clearly, was super friendly, and really went the extra mile. A real asset to the MTN brand."</p>
+                <small>– Morne Terweer</small>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p>"This is the only MTN store worth visiting. Leroy is the best rep — friendly, efficient, and always goes the extra mile. I always walk out happy."</p>
+                <small>– Nicolaas Liebenberg · Local Guide</small>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 MTN Century City. All rights reserved.</p>
+        <p>Deals valid 07 May – 07 June 2026. E&OE. T&Cs apply.</p>
+    </footer>
+
+    <!-- QRCode.js library for QR generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        // === DEAL DATA ===
+        // Each deal renders as a collapsible card with its own pre-filled WhatsApp button.
+        const WHATSAPP_NUMBER = '27832001798';
+
+        const deals = [
+            {
+                title: '📱 HONOR 600 Lite (256GB)',
+                tags: [{label: 'NEW', cls: 'tag-new'}],
+                body: `<p>108MP Ultra-Clear Camera, 6520mAh battery, AI Camera Button, Metal Forged Unibody. 5G enabled.</p>
+                       <p class="price">R399 PMx36 (Core Plan)</p>
+                       <p><strong>Free gifts:</strong> HONOR Choice Watch 2i (R999) + Tech21 Cover (R299) + HONOR Care Service Benefit up to R2,999 (180-day accidental damage protection).</p>`,
+                msg: 'the HONOR 600 Lite (256GB) and the R399 PMx36 deal'
+            },
+            {
+                title: '📱 HONOR X9d 5G (256GB)',
+                tags: [{label: 'SAVE R720', cls: 'tag-save'}],
+                body: `<p>8300mAh battery (3 days usage), 108MP Ultra Clear AI camera, drop & water resistant, up to 6 years reliable performance.</p>
+                       <p><span class="was-price">WAS R449</span> <span class="price">NOW R429 PMx36</span> (Core Plan)</p>
+                       <p><em>ADD HONOR Pad X8b LTE from R179 PMx36.</em></p>`,
+                msg: 'the HONOR X9d 5G and the R429 PMx36 deal'
+            },
+            {
+                title: '📱 Samsung Galaxy A57 5G',
+                tags: [{label: 'NEW', cls: 'tag-new'}],
+                body: `<p>Triple AI camera (50MP), bright 120Hz Super AMOLED+ display, slim 6.9mm design, AI creator suite.</p>
+                       <p class="price">from R479 PMx36 (Core Plan)</p>`,
+                msg: 'the Samsung Galaxy A57 5G and the R479 PMx36 deal'
+            },
+            {
+                title: '📱 Samsung Galaxy A37 5G',
+                tags: [{label: 'NEW', cls: 'tag-new'}],
+                body: `<p>7000mAh super battery, 6.95" FullView display, 50MP AI dual camera, superfast charge.</p>
+                       <p class="price">from R389 PMx36 (Core Plan)</p>`,
+                msg: 'the Samsung Galaxy A37 5G and the R389 PMx36 deal'
+            },
+            {
+                title: '📱 Samsung Galaxy S25 FE (256GB)',
+                tags: [{label: 'WIN R2,000', cls: 'tag-best'}],
+                body: `<p>Powerful AI Phone with Gemini Live, AI Video Editing, ProVisual Engine, IP68, 45W Super Fast Charger, lag-free 120Hz vapour-chamber gaming.</p>
+                       <p class="price">R579 PMx36 (Plus Plan)</p>
+                       <p><strong>🏆 Stand a chance to win 1 of 250 R2,000 Mastercard vouchers</strong> when you sign up or upgrade. <em>ADD Galaxy Fit3 + Buds Core from R69 PMx36.</em></p>`,
+                msg: 'the Samsung Galaxy S25 FE and the R579 PMx36 deal'
+            },
+            {
+                title: '📱 Samsung Galaxy S26 (256GB)',
+                tags: [{label: 'NEW', cls: 'tag-new'}],
+                body: `<p>Galaxy AI, superfast 25W wireless charge, 4,300mAh rapid charge, intelligent document scanner, nightography video. eSIM compatible.</p>
+                       <p class="price">from R849 PMx36 (Prime Plan)</p>`,
+                msg: 'the Samsung Galaxy S26 (256GB) and the R849 PMx36 deal'
+            },
+            {
+                title: '📱 Samsung Galaxy S26 Ultra (256GB)',
+                tags: [{label: 'NEW', cls: 'tag-new'}],
+                body: `<p>AI privacy display, 60W fast charging, 200MP AI camera, S Pen built-in, Android Auto. eSIM compatible.</p>
+                       <p class="price">from R1,249 PMx36 (Deluxe Plan)</p>`,
+                msg: 'the Samsung Galaxy S26 Ultra and the R1,249 PMx36 deal'
+            },
+            {
+                title: '🍏 iPhone 15 (128GB)',
+                tags: [{label: 'SAVE R720', cls: 'tag-save'}],
+                body: `<p>5G enabled, eSIM compatible. While stock lasts.</p>
+                       <p><span class="price">R579 PMx36 (Core Plan)</span></p>
+                       <p><em>ADD Apple Watch SE 3 GPS 40mm — WAS R279, NOW from R99 PMx36 (Save R6,480 — exclusive to iPhone 15).</em></p>`,
+                msg: 'the iPhone 15 (128GB) and the R579 PMx36 deal'
+            },
+            {
+                title: '🍏 iPhone 17 (256GB)',
+                tags: [{label: 'NEW', cls: 'tag-new'}],
+                body: `<p>5G enabled, eSIM compatible. The latest iPhone with the latest Apple intelligence features.</p>
+                       <p class="price">from R849 PMx36 (Prime Plan)</p>
+                       <p><em>Also available in 512GB. Higher tiers available on Sky Premium plans.</em></p>`,
+                msg: 'the iPhone 17 (256GB) and the R849 PMx36 deal'
+            },
+            {
+                title: '🍏 iPhone 17 Pro / Pro Max',
+                tags: [],
+                body: `<p>5G enabled, eSIM compatible. Pro from R1,289 PMx36, Pro Max from R1,389 PMx36 (Yellow Plans Deluxe).</p>
+                       <p>Available in 256GB, 512GB, 1TB and 2TB.</p>`,
+                msg: 'the iPhone 17 Pro or Pro Max deals'
+            },
+            {
+                title: '♻️ Pre-loved iPhone 13 (128GB)',
+                tags: [{label: 'SAVE R720', cls: 'tag-save'}],
+                body: `<p>Like-new grading, 12-month device warranty, 6-month battery warranty. Professionally tested. 5G enabled, eSIM compatible.</p>
+                       <p class="price">R399 PMx36 (Core Plan)</p>
+                       <p><em>Also available: Pre-loved iPhone 14 (128GB) from R489 PMx36.</em></p>`,
+                msg: 'the Pre-loved iPhone 13 (128GB) and the R399 PMx36 deal'
+            },
+            {
+                title: '🏠 MTN AirFibre 80 / 150 / 300',
+                tags: [{label: 'NEW', cls: 'tag-new'}],
+                body: `<p>Uncapped data, no trenching, free-to-use router and outdoor antenna, month-to-month flexibility, FREE installation during promo (worth R499).</p>
+                       <p><strong>80Mbps</strong> — R499 pm · <strong>150Mbps</strong> — R699 pm · <strong>300Mbps</strong> — R899 pm</p>
+                       <p><em>R2,000 cancellation fee applies if cancelled within first 12 months.</em></p>`,
+                msg: 'MTN AirFibre and which speed best suits my home'
+            },
+            {
+                title: '🏠 MTN Fibre — Save up to R600 over 6 months',
+                tags: [{label: 'BIG SAVINGS', cls: 'tag-save'}],
+                body: `<p>Free delivery, installation, free-to-use router. Promo applies for the first 6 months, standard pricing from month 7.</p>
+                       <p>Openserve 30/30 — R459 pm · Vuma 30/30 — R469 pm · MetroFibre 40/40 — R549 pm · Frogfoot 60/30 — R599 pm · Octotel 55/25 — R619 pm · Vuma 50/25 — R679 pm.</p>
+                       <p><em>R899 cancellation fee within 12 months.</em></p>`,
+                msg: 'MTN Fibre and checking coverage at my address'
+            },
+            {
+                title: '🏠 MTN Home Internet 5G/LTE',
+                tags: [],
+                body: `<p>Month-to-month, free-to-use router, FUP applies. Starter R339 (15Mbps) · Pro R529 (30Mbps) · Premium R619 (50Mbps) · Ultra R849 (75Mbps) · Infinite R1,199 (Max).</p>
+                       <p><em>ADD Sony PlayStation 5 Slim Digital from R569 PMx36 (Premium/Ultra/Infinite only). Xbox Series S 512GB from R449 PMx36. Nintendo Switch 2 from R549 PMx36.</em></p>`,
+                msg: 'MTN Home Internet 5G/LTE plans'
+            },
+            {
+                title: '📡 MTN Mobile Internet — Best Deal: Gold 50GB',
+                tags: [{label: 'BEST DEAL', cls: 'tag-best'}],
+                body: `<p>50GB total (25GB Anytime + 25GB Streaming) at <strong>R179 PMx24</strong>. Includes Netflix, DStv Stream, Disney+, Prime Video and more.</p>
+                       <p>Also: Silver 21GB R129 · Platinum 100GB R259 · Ruby 150GB R389 · Diamond 200GB R519. ADD Mi-Fi Pocket Router from R10 PMx24.</p>`,
+                msg: 'the MTN Mobile Internet Gold 50GB deal at R179 PMx24'
+            },
+            {
+                title: '👥 Duo Discount — Samsung A36 5G + A26 5G',
+                tags: [{label: 'SAVE R1,800', cls: 'tag-save'}],
+                body: `<p>Two phones, one smart price. Both on MegaFlex 160.</p>
+                       <p><span class="was-price">WAS R499</span> <span class="price">NOW R449 PMx36</span> per pair.</p>`,
+                msg: 'the Duo Discount on Samsung A36 5G + A26 5G at R449 PMx36'
+            },
+            {
+                title: '👥 Duo Discount — Huawei Nova 14i x2',
+                tags: [{label: 'SAVE R1,800', cls: 'tag-save'}],
+                body: `<p>2x Nova 14i with R7,790 in free accessories — Supa Fly Fit Fusion Watch OR Soundcore BT Speaker x2, 1 Year Huawei Care+ x2, 22.5W Charger x2, Phone Cover x2.</p>
+                       <p><span class="was-price">WAS R629</span> <span class="price">NOW R579 PMx36</span> (Yellow Plans Core + MegaFlex 160).</p>`,
+                msg: 'the Duo Discount on Huawei Nova 14i x2 at R579 PMx36'
+            },
+            {
+                title: '⭐ MTN Sky Premium — Save up to R800/month',
+                tags: [],
+                body: `<p>Save up to R800/month on your Sky plan when you add MTN Home Internet or Fibre. Includes Disney+ Premium (40% off), 10% off device insurance, free eSIM wearable connectivity, premium service experience, and a relationship manager (Silver/Gold/Platinum).</p>
+                       <p>Iron 15GB R849 · Bronze 30GB R1,139 · Silver 50GB R1,409 · Gold 100GB R2,119 · Platinum 200GB R2,699 (PMx24, all with 800–15,000 minutes).</p>`,
+                msg: 'MTN Sky Premium plans and the home internet bundle savings'
+            },
+            {
+                title: '🎁 Upgrade Bonus — Up to 3GB extra per month',
+                tags: [],
+                body: `<p>Upgrade qualifying customers and get up to <strong>+3GB free per month</strong> on selected deals (e.g. SIM-only Core R269 PMx24, SIM-only Prime R389 PMx36).</p>
+                       <p>Also: HONOR X7d 5G upgrade R279 PMx36 with <strong>+1GB + 75 free minutes per month</strong>.</p>`,
+                msg: 'an upgrade and the +3GB per month bonus'
+            }
+        ];
+
+        // === RENDER DEALS ===
+        const container = document.getElementById('dealsContainer');
+        const baseUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=`;
+
+        deals.forEach((deal, idx) => {
+            const card = document.createElement('div');
+            card.className = 'deal-card';
+
+            const tagHtml = deal.tags.map(t => `<span class="${t.cls}">${t.label}</span>`).join('');
+
+            // Build the WhatsApp message in the requested style
+            const messageText = `Good day, I am contacting you about ${deal.msg}.`;
+            const waUrl = baseUrl + encodeURIComponent(messageText);
+
+            card.innerHTML = `
+                <div class="deal-header" data-idx="${idx}">
+                    <span>${deal.title}${tagHtml}</span>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="deal-content">
+                    ${deal.body}
+                    <a href="${waUrl}" target="_blank" rel="noopener" class="deal-whatsapp-btn">
+                        💬 WhatsApp Me About This Deal
+                    </a>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+
+        // Accordion behaviour
+        document.querySelectorAll('.deal-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const icon = header.querySelector('.toggle-icon');
+                const isActive = content.classList.contains('active');
+
+                // Close all
+                document.querySelectorAll('.deal-content').forEach(el => el.classList.remove('active'));
+                document.querySelectorAll('.toggle-icon').forEach(el => el.textContent = '+');
+
+                if (!isActive) {
+                    content.classList.add('active');
+                    icon.textContent = '−';
+                }
+            });
+        });
+
+        // === QR CODE — points to this page's URL ===
+        const pageUrl = window.location.href.split('#')[0];
+        new QRCode(document.getElementById('qrcode'), {
+            text: pageUrl,
+            width: 200,
+            height: 200,
+            colorDark: '#000000',
+            colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.M
+        });
+        document.getElementById('qrUrl').textContent = pageUrl;
+    </script>
+</body>
+</html>
