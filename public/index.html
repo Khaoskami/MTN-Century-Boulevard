@@ -340,6 +340,69 @@
         }
 
         footer p { margin: 4px 0; }
+
+        /* Consultant picker modal */
+        .consultant-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.65);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .consultant-overlay.open { display: flex; }
+
+        .consultant-modal {
+            background: var(--mtn-white);
+            border-radius: 16px;
+            padding: 28px 24px 22px;
+            max-width: 320px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 10px 36px rgba(0,0,0,0.35);
+        }
+        .consultant-modal h3 {
+            margin: 0 0 6px;
+            font-size: 1.15rem;
+        }
+        .consultant-modal .modal-sub {
+            margin: 0 0 22px;
+            font-size: 0.85rem;
+            color: #555;
+        }
+        .consultant-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            background: var(--whatsapp-green);
+            color: var(--mtn-white);
+            border: none;
+            border-radius: 50px;
+            padding: 14px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 12px;
+            text-decoration: none;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+        .consultant-btn:hover {
+            background: var(--whatsapp-green-dark);
+            transform: scale(1.02);
+        }
+        .consultant-cancel {
+            font-size: 0.85rem;
+            color: #888;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+            text-decoration: underline;
+            margin-top: 4px;
+        }
     </style>
 </head>
 <body>
@@ -357,9 +420,9 @@
             <a href="https://maps.app.goo.gl/qptzf7SgN5uNFHCs8" target="_blank" rel="noopener" class="store-btn">
                 📍 FIND STORE: SmartServe Building, 32 Century Blvd
             </a>
-            <a href="https://wa.me/27832001798?text=Good%20day%2C%20I%20am%20contacting%20you%20about%20an%20upgrade%20or%20new%20contract." target="_blank" rel="noopener" class="whatsapp-btn">
+            <button onclick="openConsultantPicker('Good day, I am contacting you about an upgrade or new contract.')" class="whatsapp-btn" style="border:none;cursor:pointer;">
                 💬 General Enquiry on WhatsApp
-            </a>
+            </button>
         </div>
     </div>
 
@@ -432,12 +495,39 @@
         <p>Deals valid 07 May – 07 June 2026. E&OE. T&Cs apply.</p>
     </footer>
 
+    <!-- Consultant picker modal -->
+    <div class="consultant-overlay" id="consultantOverlay">
+        <div class="consultant-modal">
+            <h3>💬 Choose Your Consultant</h3>
+            <p class="modal-sub">Select who you'd like to chat with on WhatsApp.</p>
+            <a id="consultantAsad" href="#" target="_blank" rel="noopener" class="consultant-btn">
+                Asad
+            </a>
+            <a id="consultantLeroy" href="#" target="_blank" rel="noopener" class="consultant-btn">
+                Leroy
+            </a>
+            <button class="consultant-cancel" id="consultantCancel">Cancel</button>
+        </div>
+    </div>
+
     <!-- QRCode.js library for QR generation -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script>
+        // === CONSULTANTS ===
+        const CONSULTANTS = [
+            { name: 'Asad',  number: '27832001798' },
+            { name: 'Leroy', number: '27832007566' }
+        ];
+
+        function openConsultantPicker(message) {
+            CONSULTANTS.forEach(c => {
+                document.getElementById('consultant' + c.name).href =
+                    `https://wa.me/${c.number}?text=${encodeURIComponent(message)}`;
+            });
+            document.getElementById('consultantOverlay').classList.add('open');
+        }
+
         // === DEAL DATA ===
-        // Each deal renders as a collapsible card with its own pre-filled WhatsApp button.
-        const WHATSAPP_NUMBER = '27832001798';
 
         const deals = [
             {
@@ -585,17 +675,13 @@
 
         // === RENDER DEALS ===
         const container = document.getElementById('dealsContainer');
-        const baseUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=`;
 
         deals.forEach((deal, idx) => {
             const card = document.createElement('div');
             card.className = 'deal-card';
 
             const tagHtml = deal.tags.map(t => `<span class="${t.cls}">${t.label}</span>`).join('');
-
-            // Build the WhatsApp message in the requested style
             const messageText = `Good day, I am contacting you about ${deal.msg}.`;
-            const waUrl = baseUrl + encodeURIComponent(messageText);
 
             card.innerHTML = `
                 <div class="deal-header" data-idx="${idx}">
@@ -604,12 +690,18 @@
                 </div>
                 <div class="deal-content">
                     ${deal.body}
-                    <a href="${waUrl}" target="_blank" rel="noopener" class="deal-whatsapp-btn">
+                    <button class="deal-whatsapp-btn wa-trigger" data-msg="${encodeURIComponent(messageText)}">
                         💬 WhatsApp Me About This Deal
-                    </a>
+                    </button>
                 </div>
             `;
             container.appendChild(card);
+        });
+
+        document.querySelectorAll('.wa-trigger').forEach(btn => {
+            btn.addEventListener('click', () => {
+                openConsultantPicker(decodeURIComponent(btn.dataset.msg));
+            });
         });
 
         // Accordion behaviour
@@ -629,6 +721,11 @@
                 }
             });
         });
+
+        // Close overlay on backdrop click or cancel
+        const overlay = document.getElementById('consultantOverlay');
+        document.getElementById('consultantCancel').addEventListener('click', () => overlay.classList.remove('open'));
+        overlay.addEventListener('click', e => { if (e.target === overlay) overlay.classList.remove('open'); });
 
         // === QR CODE — points to this page's URL ===
         const pageUrl = window.location.href.split('#')[0];
